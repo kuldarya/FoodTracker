@@ -33,6 +33,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGZ-sI-z8o">
                                         <rect key="frame" x="0.0" y="74.5" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OF8-h3-jrw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -49,9 +52,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mealName" destination="4Gd-29-RqV" id="MXM-qG-euE"/>
+                        <outlet property="mealNameLabel" destination="4Gd-29-RqV" id="MXM-qG-euE"/>
                         <outlet property="mealTextField" destination="WxO-cx-gMk" id="J3K-IL-Y2A"/>
-                        <outlet property="setDefaultTextButton" destination="tGZ-sI-z8o" id="RVy-Jl-qXQ"/>
+                        <outlet property="setDefaultLabelTextButton" destination="tGZ-sI-z8o" id="RVy-Jl-qXQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
