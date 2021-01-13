@@ -10,7 +10,7 @@
 		4BDD3AD125AE527400C8935D /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD3AD025AE527400C8935D /* RatingControl.swift */; };
 		4BF875D72581866000E311CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF875D62581866000E311CB /* AppDelegate.swift */; };
 		4BF875D92581866000E311CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF875D82581866000E311CB /* SceneDelegate.swift */; };
-		4BF875DB2581866000E311CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF875DA2581866000E311CB /* ViewController.swift */; };
+		4BF875DB2581866000E311CB /* FoodTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF875DA2581866000E311CB /* FoodTrackerViewController.swift */; };
 		4BF875DE2581866000E311CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BF875DC2581866000E311CB /* Main.storyboard */; };
 		4BF875E02581866100E311CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF875DF2581866100E311CB /* Assets.xcassets */; };
 		4BF875E32581866100E311CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BF875E12581866100E311CB /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		4BF875D32581866000E311CB /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF875D62581866000E311CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BF875D82581866000E311CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4BF875DA2581866000E311CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4BF875DA2581866000E311CB /* FoodTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerViewController.swift; sourceTree = "<group>"; };
 		4BF875DD2581866000E311CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BF875DF2581866100E311CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BF875E22581866100E311CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +39,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B6DBD5125AEAA920057B1DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4BDD3AD025AE527400C8935D /* RatingControl.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4B6DBD5225AEAAA60057B1DE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BF875DA2581866000E311CB /* FoodTrackerViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4B6DBD5425AEAADF0057B1DE /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				4BF875DF2581866100E311CB /* Assets.xcassets */,
+				4BF875E12581866100E311CB /* LaunchScreen.storyboard */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		4BD64F5125AEAC7700FAE9BE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4BF875D62581866000E311CB /* AppDelegate.swift */,
+				4BF875D82581866000E311CB /* SceneDelegate.swift */,
+				4BF875E42581866100E311CB /* Info.plist */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		4BF875CA2581866000E311CB = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +93,11 @@
 		4BF875D52581866000E311CB /* FoodTracker */ = {
 			isa = PBXGroup;
 			children = (
-				4BF875D62581866000E311CB /* AppDelegate.swift */,
-				4BF875D82581866000E311CB /* SceneDelegate.swift */,
-				4BF875DA2581866000E311CB /* ViewController.swift */,
-				4BDD3AD025AE527400C8935D /* RatingControl.swift */,
+				4BD64F5125AEAC7700FAE9BE /* Main */,
+				4B6DBD5125AEAA920057B1DE /* Views */,
+				4B6DBD5225AEAAA60057B1DE /* ViewControllers */,
 				4BF875DC2581866000E311CB /* Main.storyboard */,
-				4BF875DF2581866100E311CB /* Assets.xcassets */,
-				4BF875E12581866100E311CB /* LaunchScreen.storyboard */,
-				4BF875E42581866100E311CB /* Info.plist */,
+				4B6DBD5425AEAADF0057B1DE /* Supporting */,
 			);
 			path = FoodTracker;
 			sourceTree = "<group>";
@@ -141,7 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BDD3AD125AE527400C8935D /* RatingControl.swift in Sources */,
-				4BF875DB2581866000E311CB /* ViewController.swift in Sources */,
+				4BF875DB2581866000E311CB /* FoodTrackerViewController.swift in Sources */,
 				4BF875D72581866000E311CB /* AppDelegate.swift in Sources */,
 				4BF875D92581866000E311CB /* SceneDelegate.swift in Sources */,
 			);
@@ -292,7 +324,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JWYC5RANS6;
-				INFOPLIST_FILE = FoodTracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FoodTracker/Main/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,7 +343,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JWYC5RANS6;
-				INFOPLIST_FILE = FoodTracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FoodTracker/Main/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
