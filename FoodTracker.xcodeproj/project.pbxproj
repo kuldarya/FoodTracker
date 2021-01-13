@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BD64F5925AEBF8B00FAE9BE /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD64F5825AEBF8B00FAE9BE /* Meal.swift */; };
 		4BDD3AD125AE527400C8935D /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD3AD025AE527400C8935D /* RatingControl.swift */; };
 		4BF875D72581866000E311CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF875D62581866000E311CB /* AppDelegate.swift */; };
 		4BF875D92581866000E311CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF875D82581866000E311CB /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4BD64F5825AEBF8B00FAE9BE /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		4BDD3AD025AE527400C8935D /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		4BF875D32581866000E311CB /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF875D62581866000E311CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		4BD64F5725AEBF5300FAE9BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BD64F5825AEBF8B00FAE9BE /* Meal.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4BF875CA2581866000E311CB = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				4BD64F5125AEAC7700FAE9BE /* Main */,
+				4BD64F5725AEBF5300FAE9BE /* Model */,
 				4B6DBD5125AEAA920057B1DE /* Views */,
 				4B6DBD5225AEAAA60057B1DE /* ViewControllers */,
 				4BF875DC2581866000E311CB /* Main.storyboard */,
@@ -172,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BD64F5925AEBF8B00FAE9BE /* Meal.swift in Sources */,
 				4BDD3AD125AE527400C8935D /* RatingControl.swift in Sources */,
 				4BF875DB2581866000E311CB /* FoodTrackerViewController.swift in Sources */,
 				4BF875D72581866000E311CB /* AppDelegate.swift in Sources */,
