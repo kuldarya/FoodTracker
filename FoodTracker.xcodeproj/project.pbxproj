@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B4087B325B2261C003315AA /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4087B225B2261C003315AA /* MealTableViewController.swift */; };
+		4B4087C925B22F74003315AA /* NSObject+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4087C825B22F74003315AA /* NSObject+Utils.swift */; };
 		4BD64F5925AEBF8B00FAE9BE /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD64F5825AEBF8B00FAE9BE /* Meal.swift */; };
 		4BD64F6625AEC60600FAE9BE /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD64F6525AEC60600FAE9BE /* FoodTrackerTests.swift */; };
 		4BD64F7025AEF9DE00FAE9BE /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD64F6F25AEF9DE00FAE9BE /* MealTableViewCell.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B4087B225B2261C003315AA /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		4B4087C825B22F74003315AA /* NSObject+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Utils.swift"; sourceTree = "<group>"; };
 		4BD64F5825AEBF8B00FAE9BE /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		4BD64F6325AEC60600FAE9BE /* FoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD64F6525AEC60600FAE9BE /* FoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerTests.swift; sourceTree = "<group>"; };
@@ -64,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B4087C725B22F5C003315AA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4B4087C825B22F74003315AA /* NSObject+Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4B6DBD5125AEAA920057B1DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				4BF875DA2581866000E311CB /* FoodTrackerViewController.swift */,
+				4B4087B225B2261C003315AA /* MealTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -142,6 +155,7 @@
 				4BD64F5725AEBF5300FAE9BE /* Model */,
 				4B6DBD5125AEAA920057B1DE /* Views */,
 				4B6DBD5225AEAAA60057B1DE /* ViewControllers */,
+				4B4087C725B22F5C003315AA /* Extensions */,
 				4BF875DC2581866000E311CB /* Main.storyboard */,
 				4B6DBD5425AEAADF0057B1DE /* Supporting */,
 			);
@@ -258,6 +272,8 @@
 			files = (
 				4BD64F5925AEBF8B00FAE9BE /* Meal.swift in Sources */,
 				4BDD3AD125AE527400C8935D /* RatingControl.swift in Sources */,
+				4B4087B325B2261C003315AA /* MealTableViewController.swift in Sources */,
+				4B4087C925B22F74003315AA /* NSObject+Utils.swift in Sources */,
 				4BD64F7025AEF9DE00FAE9BE /* MealTableViewCell.swift in Sources */,
 				4BF875DB2581866000E311CB /* FoodTrackerViewController.swift in Sources */,
 				4BF875D72581866000E311CB /* AppDelegate.swift in Sources */,
