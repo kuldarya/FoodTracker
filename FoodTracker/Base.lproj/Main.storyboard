@@ -85,15 +85,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xvy-cL-wSD">
-                                <rect key="frame" x="20" y="76" width="374" height="358"/>
+                                <rect key="frame" x="20" y="66" width="374" height="418"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WxO-cx-gMk">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                        <rect key="frame" x="119" y="0.0" width="136" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" translatesAutoresizingMaskIntoConstraints="NO" id="wwI-Qp-PEX">
-                                        <rect key="frame" x="40" y="10" width="294" height="294"/>
+                                        <rect key="frame" x="27" y="44" width="320" height="320"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="wwI-Qp-PEX" secondAttribute="height" multiplier="1:1" id="BlP-em-aKH"/>
@@ -103,34 +103,40 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GUk-l0-tvZ" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="61" y="314" width="252" height="44"/>
+                                        <rect key="frame" x="61" y="374" width="252" height="44"/>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="WxO-cx-gMk" secondAttribute="trailing" id="lkH-gr-raA"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Xvy-cL-wSD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9h2-Id-UW3"/>
-                            <constraint firstItem="Xvy-cL-wSD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="G1R-VV-DUc"/>
+                            <constraint firstItem="Xvy-cL-wSD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="10" id="eV7-22-2Yp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xvy-cL-wSD" secondAttribute="trailing" constant="20" id="lD0-RC-sIg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xvy-cL-wSD" secondAttribute="bottom" constant="374" id="yly-on-DRP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="I7f-gv-DCv">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3iH-eq-UCp"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="y3I-px-qaC"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3iH-eq-UCp">
+                            <connections>
+                                <action selector="cancelNewMeal:" destination="BYZ-38-t0r" id="PZj-V9-XVr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="y3I-px-qaC">
+                            <connections>
+                                <segue destination="WQj-tE-l2P" kind="unwind" unwindAction="unwindToMealListWithSender:" id="CFn-Ye-Fxf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mealTextField" destination="WxO-cx-gMk" id="J3K-IL-Y2A"/>
+                        <outlet property="nameTextField" destination="WxO-cx-gMk" id="J3K-IL-Y2A"/>
                         <outlet property="photoImageView" destination="wwI-Qp-PEX" id="Iw3-GI-mC5"/>
                         <outlet property="ratingControl" destination="GUk-l0-tvZ" id="flm-AS-rg1"/>
+                        <outlet property="saveButton" destination="y3I-px-qaC" id="G7d-KC-jSS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="WQj-tE-l2P" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="4Lo-SZ-zqU">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="cY7-nm-dN2"/>
