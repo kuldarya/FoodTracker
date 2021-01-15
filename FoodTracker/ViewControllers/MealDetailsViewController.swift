@@ -7,9 +7,8 @@
 
 import UIKit
 
-class FoodTrackerViewController: UIViewController {
+class MealDetailsViewController: UIViewController {
     @IBOutlet private weak var mealTextField: UITextField!
-    @IBOutlet private weak var mealNameLabel: UILabel!
     @IBOutlet private weak var photoImageView: UIImageView!
     @IBOutlet private weak var ratingControl: RatingControl!
     
@@ -30,32 +29,28 @@ class FoodTrackerViewController: UIViewController {
         mealTextField.returnKeyType = .done
         mealTextField.enablesReturnKeyAutomatically = true
         mealTextField.autocapitalizationType = .sentences
-        
-        mealNameLabel.text = "Meal Name"
-                
+                        
         photoImageView.image = UIImage(named: "defaultPhoto")
     }
     
     //MARK: - Actions
     @IBAction private func setDefaultLabelText(_ sender: UIButton) {
-        mealNameLabel.text = "Default text"
         mealTextField.text = ""
     }
 }
 
 //MARK: - Extensions
-extension FoodTrackerViewController: UITextFieldDelegate {
+extension MealDetailsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        mealNameLabel.text = textField.text
     }
 }
 
-extension FoodTrackerViewController: UIImagePickerControllerDelegate {
+extension MealDetailsViewController: UIImagePickerControllerDelegate {
     @IBAction private func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         //Make sure keyboard is closed any time the imageView is tapped
         mealTextField.resignFirstResponder()
@@ -78,6 +73,6 @@ extension FoodTrackerViewController: UIImagePickerControllerDelegate {
     }
 }
 
-extension FoodTrackerViewController: UINavigationControllerDelegate {
+extension MealDetailsViewController: UINavigationControllerDelegate {
 }
 
