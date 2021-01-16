@@ -38,10 +38,6 @@ class MealTableViewController: UITableViewController {
                 
         return cell
     }
-
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView()
-    }
     
     private func loadSampleMeal() {
         let photo1 = UIImage(named: "meal1")
