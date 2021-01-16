@@ -56,8 +56,8 @@ class MealDetailsViewController: UIViewController {
     }
     
     //MARK: - IBActions
-    @IBAction private func setDefaultLabelText(_ sender: UIButton) {
-        nameTextField.text = ""
+    @IBAction func cancelNewMeal(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     //MARK: - Private Methods
