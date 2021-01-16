@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 
 class MealTableViewController: UITableViewController {
     private var meals = [Meal]()
@@ -37,6 +38,31 @@ class MealTableViewController: UITableViewController {
         cell.ratingControl.rating = meal.rating
                 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch (segue.identifier ?? "") {
+        case "AddItem":
+            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+        case "ShowDetail":
+            guard let mealDetailsViewController = segue.destination as? MealDetailsViewController else {
+                assertionFailure("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let mealCell = sender as? MealTableViewCell else {
+                assertionFailure("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: mealCell) else {
+                assertionFailure("The selected cell is not being displayed by the table")
+            }
+            let selectedMeal = meals[indexPath.row]
+            mealDetailsViewController.meal = selectedMeal
+        default:
+            assertionFailure("Unexpected Segue Identifier; \(segue.identifier)")
+        }
     }
     
     //MARK: - IBActions
