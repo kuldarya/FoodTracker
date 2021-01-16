@@ -6,36 +6,64 @@
 //
 
 import UIKit
+import os.log
 
 class MealDetailsViewController: UIViewController {
-    @IBOutlet private weak var mealTextField: UITextField!
+    @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var photoImageView: UIImageView!
     @IBOutlet private weak var ratingControl: RatingControl!
+    @IBOutlet private weak var saveButton: UIBarButtonItem!
     
+    var meal: Meal?
     private lazy var imagePickerController = UIImagePickerController()
     
     //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mealTextField.delegate = self
+        nameTextField.delegate = self
         imagePickerController.delegate = self
         
         setupUI()
+        updateSaveButtonState()
     }
     
     //MARK: - Setup
     private func setupUI() {
-        mealTextField.returnKeyType = .done
-        mealTextField.enablesReturnKeyAutomatically = true
-        mealTextField.autocapitalizationType = .sentences
+        nameTextField.returnKeyType = .done
+        nameTextField.enablesReturnKeyAutomatically = true
+        nameTextField.autocapitalizationType = .sentences
                         
         photoImageView.image = UIImage(named: "defaultPhoto")
     }
     
-    //MARK: - Actions
+    //MARK: - Navigation
+    
+    //configure a view controller before it's presented
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let name = nameTextField.text ?? ""
+        let image = photoImageView.image
+        let rating = ratingControl.rating
+        
+        meal = Meal(name: name, photo: image, rating: rating)
+    }
+    
+    //MARK: - IBActions
     @IBAction private func setDefaultLabelText(_ sender: UIButton) {
-        mealTextField.text = ""
+        nameTextField.text = ""
+    }
+    
+    //MARK: - Private Methods
+    private func updateSaveButtonState() {
+        let text = nameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
     }
 }
 
@@ -46,14 +74,20 @@ extension MealDetailsViewController: UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        saveButton.isEnabled = false
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+        navigationItem.title = textField.text
     }
 }
 
 extension MealDetailsViewController: UIImagePickerControllerDelegate {
     @IBAction private func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         //Make sure keyboard is closed any time the imageView is tapped
-        mealTextField.resignFirstResponder()
+        nameTextField.resignFirstResponder()
         
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
