@@ -25,6 +25,7 @@ class MealDetailsViewController: UIViewController {
         imagePickerController.delegate = self
         
         setupUI()
+        populateMealDetailsScreen()
         updateSaveButtonState()
     }
     
@@ -35,6 +36,15 @@ class MealDetailsViewController: UIViewController {
         nameTextField.autocapitalizationType = .sentences
                         
         photoImageView.image = UIImage(named: "defaultPhoto")
+    }
+    
+    private func populateMealDetailsScreen() {
+        if let meal = meal {
+            navigationItem.title = meal.name
+            nameTextField.text = meal.name
+            photoImageView.image = meal.photo
+            ratingControl.rating = meal.rating
+        }
     }
     
     //MARK: - Navigation

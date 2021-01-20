@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 
 class MealTableViewController: UITableViewController {
     private var meals = [Meal]()
@@ -39,10 +40,44 @@ class MealTableViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch (segue.identifier ?? "") {
+        case "AddItem":
+            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+        case "ShowDetail":
+            guard let mealDetailsViewController = segue.destination as? MealDetailsViewController else {
+                assertionFailure("Unexpected destination: \(segue.destination)")
+                return
+            }
+            
+            guard let mealCell = sender as? MealTableViewCell else {
+                assertionFailure("Unexpected sender: \(String(describing: sender))")
+                return
+            }
+            
+            guard let indexPath = tableView.indexPath(for: mealCell) else {
+                assertionFailure("The selected cell is not being displayed by the table")
+                return
+            }
+            let selectedMeal = meals[indexPath.row]
+            mealDetailsViewController.meal = selectedMeal
+        default:
+            assertionFailure("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
+        }
+    }
+    
     //MARK: - IBActions
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MealDetailsViewController,
            let meal = sourceViewController.meal {
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                meals[selectedIndexPath.row] = meal
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            
             //add a new meal
             let newIndexPath = IndexPath(row: meals.count, section: 0)
             meals.append(meal)
