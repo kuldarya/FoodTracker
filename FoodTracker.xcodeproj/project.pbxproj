@@ -80,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				4BDD3AD025AE527400C8935D /* RatingControl.swift */,
-				4BD64F6F25AEF9DE00FAE9BE /* MealTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,6 +100,14 @@
 				4BF875E12581866100E311CB /* LaunchScreen.storyboard */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		4BA0080625B8EF2200815634 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4BD64F6F25AEF9DE00FAE9BE /* MealTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		4BD64F5125AEAC7700FAE9BE /* Main */ = {
@@ -153,8 +160,9 @@
 			children = (
 				4BD64F5125AEAC7700FAE9BE /* Main */,
 				4BD64F5725AEBF5300FAE9BE /* Model */,
-				4B6DBD5125AEAA920057B1DE /* Views */,
 				4B6DBD5225AEAAA60057B1DE /* ViewControllers */,
+				4B6DBD5125AEAA920057B1DE /* Views */,
+				4BA0080625B8EF2200815634 /* Cells */,
 				4B4087C725B22F5C003315AA /* Extensions */,
 				4BF875DC2581866000E311CB /* Main.storyboard */,
 				4B6DBD5425AEAADF0057B1DE /* Supporting */,

@@ -49,19 +49,22 @@ class MealTableViewController: UITableViewController {
         case "ShowDetail":
             guard let mealDetailsViewController = segue.destination as? MealDetailsViewController else {
                 assertionFailure("Unexpected destination: \(segue.destination)")
+                return
             }
             
             guard let mealCell = sender as? MealTableViewCell else {
                 assertionFailure("Unexpected sender: \(String(describing: sender))")
+                return
             }
             
             guard let indexPath = tableView.indexPath(for: mealCell) else {
                 assertionFailure("The selected cell is not being displayed by the table")
+                return
             }
             let selectedMeal = meals[indexPath.row]
             mealDetailsViewController.meal = selectedMeal
         default:
-            assertionFailure("Unexpected Segue Identifier; \(segue.identifier)")
+            assertionFailure("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
         }
     }
     
@@ -69,6 +72,12 @@ class MealTableViewController: UITableViewController {
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MealDetailsViewController,
            let meal = sourceViewController.meal {
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                meals[selectedIndexPath.row] = meal
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            
             //add a new meal
             let newIndexPath = IndexPath(row: meals.count, section: 0)
             meals.append(meal)
