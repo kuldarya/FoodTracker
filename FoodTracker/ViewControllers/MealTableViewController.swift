@@ -74,14 +74,15 @@ class MealTableViewController: UITableViewController {
            let meal = sourceViewController.meal {
             
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                //update an existing meal
                 meals[selectedIndexPath.row] = meal
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                //add a new meal
+                let newIndexPath = IndexPath(row: meals.count, section: 0)
+                meals.append(meal)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
-            
-            //add a new meal
-            let newIndexPath = IndexPath(row: meals.count, section: 0)
-            meals.append(meal)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
     
@@ -93,15 +94,18 @@ class MealTableViewController: UITableViewController {
         let photo3 = UIImage(named: "meal3")
         
         guard let meal1 = Meal(name: "Caprese salad", photo: photo1, rating: 4) else {
-            fatalError("Unable to instantiate meal1")
+            assertionFailure("Unable to instantiate meal1")
+            return
         }
         
         guard let meal2 = Meal(name: "Checken and Potatoes", photo: photo2, rating: 5) else {
-            fatalError("Unable to instantiate meal2")
+            assertionFailure("Unable to instantiate meal2")
+            return
         }
         
         guard let meal3 = Meal(name: "Pasta with Meatballs", photo: photo3, rating: 3) else {
-            fatalError("Unable to instantiate meal3")
+            assertionFailure("Unable to instantiate meal3")
+            return
         }
         
         meals += [meal1, meal2, meal3]
